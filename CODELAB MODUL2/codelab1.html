@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .container .calculate {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .container .reset {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Penjumlahan</h2>
+        <label for="bil1">Bilangan pertama</label>
+        <input type="number" id="bil1" placeholder="1">
+        <label for="bil2">Bilangan kedua</label>
+        <input type="number" id="bil2" placeholder="2">
+        <div>
+            <button class="calculate" onclick="jumlahkan()">Jumlahkan</button>
+            <button class="reset" onclick="reset()">Reset</button>
+        </div>
+        <div class="result">Hasil: <span id="hasil">0</span></div>
+    </div>
+
+    <script>
+        function jumlahkan() {
+            let bil1 = parseFloat(document.getElementById("bil1").value);
+            let bil2 = parseFloat(document.getElementById("bil2").value);
+            if (!isNaN(bil1) && !isNaN(bil2)) {
+                document.getElementById("hasil").innerText = bil1 + bil2;
+            } else {
+                document.getElementById("hasil").innerText = "Input tidak valid";
+            }
+        }
+
+        function reset() {
+            document.getElementById("bil1").value = "";
+            document.getElementById("bil2").value = "";
+            document.getElementById("hasil").innerText = 0;
+        }
+    </script>
+</body>
+</html>
